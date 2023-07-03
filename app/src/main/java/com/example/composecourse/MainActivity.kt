@@ -26,44 +26,8 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            /*ComposeCourseTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }*/
-            Row(
-                modifier = Modifier
-//                    .fillMaxSize(0.5f)
-                    .width(200.dp)
-                    .fillMaxHeight(0.7f)
-                    .background(Color.Green),
-                horizontalArrangement = Arrangement.SpaceAround,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(text = "Hello")
-                Text(text = "World")
-                Text(text = "Hello")
-            }
+
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ComposeCourseTheme {
-        Greeting("Android")
-    }
-}
