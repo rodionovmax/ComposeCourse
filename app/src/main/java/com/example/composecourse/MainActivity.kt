@@ -4,12 +4,19 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredWidth
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -26,44 +33,35 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            /*ComposeCourseTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
-            }*/
-            Row(
+            Column(
                 modifier = Modifier
-//                    .fillMaxSize(0.5f)
-                    .width(200.dp)
-                    .fillMaxHeight(0.7f)
-                    .background(Color.Green),
-                horizontalArrangement = Arrangement.SpaceAround,
-                verticalAlignment = Alignment.CenterVertically
+                    .background(Color.LightGray)
+                    .fillMaxHeight(0.5f)
+                    .fillMaxWidth(0.5f)
+//                    .requiredWidth(400.dp)
+//                    .padding(top = 50.dp)
+                    .border(5.dp, Color.Magenta)
+                    .padding(5.dp)
+                    .border(5.dp, Color.Blue)
+                    .padding(5.dp)
+                    .border(10.dp, Color.Red)
+                    .padding(10.dp)
             ) {
-                Text(text = "Hello")
+                Text(text = "Hello", modifier = Modifier
+                    .offset(0.dp, 20.dp))
+                Text(text = "Hello", modifier = Modifier
+                    .border(5.dp, Color.Yellow)
+                    .padding(5.dp)
+                    .offset(20.dp, 20.dp)
+                    .border(10.dp, Color.Black)
+                    .padding(10.dp))
+                Spacer(modifier = Modifier.height(30.dp))
+                Text(text = "Hello", modifier = Modifier.clickable {
+
+                })
+                Spacer(modifier = Modifier.height(50.dp))
                 Text(text = "World")
-                Text(text = "Hello")
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ComposeCourseTheme {
-        Greeting("Android")
     }
 }
