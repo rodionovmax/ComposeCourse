@@ -1,5 +1,6 @@
 package com.example.composecourse
 
+import android.content.res.Resources
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -37,6 +38,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.composecourse.ui.theme.ComposeCourseTheme
 import com.example.composecourse.ui.theme.ComposeParallaxScrollTheme
@@ -94,7 +96,7 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier
                                 .clipToBounds()
                                 .fillMaxWidth()
-                                .height(imageHeight + midBgOffset.dp)
+                                .height(imageHeight + midBgOffset.toDp())
                                 .background(
                                     Brush.verticalGradient(
                                         listOf(
@@ -145,5 +147,10 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+
+    private fun Float.toDp(): Dp {
+        return (this / Resources.getSystem().displayMetrics.density).dp
+    }
+
 }
 
